@@ -1,0 +1,14 @@
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.AssemblyInfoInputs.cache
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.AssemblyInfo.cs
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.csproj.CoreCompileInputs.cache
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\bin\Debug\net8.0\SocketCliente.exe
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\bin\Debug\net8.0\SocketCliente.deps.json
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\bin\Debug\net8.0\SocketCliente.runtimeconfig.json
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\bin\Debug\net8.0\SocketCliente.dll
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\bin\Debug\net8.0\SocketCliente.pdb
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.dll
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\refint\SocketCliente.dll
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.pdb
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\SocketCliente.genruntimeconfig.cache
+C:\dev\projects\projeto-bate-papo-tcp-ip\SocketCliente\SocketCliente\obj\Debug\net8.0\ref\SocketCliente.dll
