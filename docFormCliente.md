@@ -1,117 +1,71 @@
+# 🖧 ChatServer - Servidor de Chat TCP em C#
 
-# Documentação da Classe `Form1` (Cliente)
+Este é o servidor de um sistema de chat em C#, usando `TCP/IP` para comunicação em rede local. O servidor gerencia conexões de múltiplos clientes, controla a troca de mensagens e mantém uma estrutura simples e eficiente para comunicação em tempo real.
 
-Esta classe representa o formulário principal da aplicação cliente do sistema de chat. Ela lida com a interface gráfica, a conexão com o servidor e a troca de mensagens em tempo real.
+## ⚙️ Funcionalidades
 
----
+- Gerencia múltiplos usuários conectados.
+- Envia mensagens de um cliente para todos os outros (broadcast).
+- Envia mensagens administrativas para todos os usuários.
+- Notifica o status de entrada/saída de usuários.
+- Usa `Hashtable` para mapear conexões e nomes de usuários.
+- Usa `Thread` para tratar múltiplas conexões simultaneamente.
 
-## Namespaces Importados
+## 📁 Estrutura do Projeto
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-```
+### Classe `Servidor`
 
-Esses namespaces fornecem suporte para:
+- Inicializa o listener (`TcpListener`) e aceita conexões.
+- Usa `Thread` para lidar com as conexões em paralelo.
+- Mantém um registro de todos os usuários conectados.
+- Dispara eventos de status via `StatusChangedEventHandler`.
 
-- **System.Net / System.Net.Sockets**: manipulação de conexões de rede e sockets TCP.
-- **System.Threading**: criação e controle de threads (comunicação assíncrona).
-- **System.IO**: leitura e escrita de dados via stream (envio/recebimento de mensagens).
-- **System.Windows.Forms / Drawing / ComponentModel**: interface gráfica (formulário, botões, labels, etc.).
+### Classe `Conexao` (mencionada, mas não incluída aqui)
 
----
+- Responsável por receber e processar as mensagens de cada cliente.
+- Chama os métodos do `Servidor` para enviar mensagens ou remover usuários.
 
-## Campos Principais
+## 📌 Requisitos
 
-- `NomeUsuario`: Nome do usuário conectado.
-- `stwEnviador` / `strReceptor`: Streams para envio e recepção de mensagens.
-- `tcpServidor`: Conexão TCP com o servidor.
-- Delegates para atualizar UI de outra thread (thread-safe).
-- `mensagemThread`: Thread que escuta as mensagens do servidor.
-- `enderecoIP` / `portaHost`: IP e porta do servidor.
-- `Conectado`: flag booleana de estado de conexão.
+- .NET Framework ou .NET Core compatível com `System.Net.Sockets`.
+- Ambiente Windows Forms (o projeto cliente usa WinForms para a interface).
+- Conhecimento básico de redes e sockets TCP/IP.
 
----
+## 🚀 Como Usar
 
-## Construtor
+1. Compile e execute o projeto do **Servidor**.
+2. Ele iniciará e ficará escutando conexões na porta e IP configurados.
+3. Clientes poderão se conectar ao servidor para iniciar o chat.
 
-```csharp
-public Form1()
-```
+## 🧠 Tecnologias Utilizadas
 
-Inicializa o formulário e associa o evento de fechamento do app à função `OnApplicationExit`.
+- C#
+- .NET Framework
+- TCP/IP com `System.Net.Sockets`
+- Threads com `System.Threading`
+- WinForms (no projeto cliente)
 
----
+## 📚 Importações Principais
 
-## Botões e Eventos
+- `System.Net`, `System.Net.Sockets` — para comunicação via sockets.
+- `System.Collections` — para `Hashtable` de conexões e usuários.
+- `System.IO` — para leitura e escrita das mensagens.
+- `System.Threading` — para lidar com múltiplas conexões em paralelo.
 
-### `btnConectar_Click`
+## 💡 Observações
 
-Conecta ou desconecta do servidor dependendo do estado atual.
+- O número de usuários é limitado a 30 (`Hashtable(30)`).
+- A classe `StatusChangedEventArgs` é usada para encapsular mensagens administrativas.
+- A responsabilidade de manter o servidor rodando e aceitar conexões está separada da lógica de mensagens por usuário (`Conexao`).
 
-### `btnEnviar_Click`
+## 🛠️ Extensões Futuras
 
-Envia a mensagem digitada.
-
-### `txtMensagem_KeyPress`
-
-Permite enviar a mensagem pressionando ENTER.
+- Implementar autenticação de usuários.
+- Log de mensagens no servidor.
+- Adicionar criptografia na comunicação.
+- Interface gráfica para o servidor.
 
 ---
 
-## Método `InicializaConexao`
-
-1. Lê o IP e porta informados no formulário.
-2. Tenta se conectar ao servidor via TCP.
-3. Atualiza os componentes da UI.
-4. Envia o nome do usuário ao servidor.
-5. Cria uma thread (`mensagemThread`) para escutar as mensagens.
-
----
-
-## Método `RecebeMensagens`
-
-- Recebe a primeira linha do servidor para validar conexão.
-- Caso sucesso, começa a escutar mensagens do servidor continuamente.
-- Atualiza a interface usando `Invoke` com os delegates apropriados.
-
----
-
-## Método `AtualizaLog`
-
-Exibe as mensagens no `txtLog`.
-
----
-
-## Método `EnviaMensagem`
-
-Envia a mensagem digitada no campo de texto para o servidor.
-
----
-
-## Método `FechaConexao`
-
-Desconecta do servidor, limpa os recursos e atualiza a interface para o estado de desconectado.
-
----
-
-## Método `OnApplicationExit`
-
-Executado ao fechar a aplicação. Garante que a conexão e os recursos sejam fechados adequadamente.
-
----
-
-## Considerações Finais
-
-A classe `Form1` é o ponto de entrada e controle da UI do cliente. Ela controla toda a comunicação com o servidor e atualização visual do estado do chat.
+🧑‍💻 Desenvolvido por: Matheus  
+📅 Última atualização: Maio de 2025
